@@ -1,0 +1,28 @@
+schema: 'https://rickandmortyapi.com/graphql'
+documents:
+  - 'src/**/*.{graphql,ts,tsx,js,jsx}'
+extensions:
+  codegen:
+    overwrite: true
+    # silent: false
+    # debug: true
+    # verbose: true
+    # errorsOnly: false
+    ignoreNoDocuments: true
+    generates:
+      'src/graphql/':
+        preset: gql-tag-operations-preset
+        plugins:
+          - typescript-apollo-client-helpers
+          - fragment-matcher
+        config:
+          typesPrefix: I
+          enumPrefix: I
+          enumsAsTypes: true
+          documentVariableSuffix: Doc
+          fragmentVariableSuffix: Fragment
+          omitOperationSuffix: true # Don't add Query/Fragment/Subscription/Mutation suffix
+          dedupeFragments: true
+          exportFragmentSpreadSubTypes: true
+          nonOptionalTypename: true
+          flattenGeneratedTypes: false # Disabled since it removes fragment types
