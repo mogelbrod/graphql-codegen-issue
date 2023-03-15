@@ -4,9 +4,7 @@ export const MyNestedQueryDoc = gql(/* GraphQL */ `
   query MyNestedQuery($page: Int!) {
     characters(page: $page) {
       info {
-      } # error on this line
-      results {
-        name
+        # count # uncomment this line to make the query valid
       }
     }
   }
